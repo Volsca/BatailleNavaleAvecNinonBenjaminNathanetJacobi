@@ -7,10 +7,11 @@ Grille::Grille()
 {
 	for (int jacobi = 0; jacobi < Taille; jacobi++)
 	{
-		Case* empty = new Case();
+		
 		vector<Case*> temp;
 		for (int i = 0; i < Taille; i++)
 		{
+			Case* empty = new Case();
 			temp.push_back(empty);
 		}
 		grille.push_back(temp);
@@ -33,6 +34,7 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			}
 			else {
 				cout << "Bateau out of range" << endl;
+				return false;
 			}
 		}
 		//Direction vers le bas
@@ -45,6 +47,7 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			}
 			else {
 				cout << "Bateau out of range" << endl;
+				return false;
 			}
 		}
 		//Direction vers la droite
@@ -57,10 +60,11 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			}
 			else {
 				cout << "Bateau out of range" << endl;
+				return false;
 			}
 		}
 		//Direction vers la gauche
-		if (direction == "up") {
+		if (direction == "left") {
 			if ((y + 1 - taille) >= 0) {
 				for (int i = 0; i < taille; i++)
 				{
@@ -69,12 +73,15 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			}
 			else {
 				cout << "Bateau out of range" << endl;
+				return false;
 			}
 		}
 	}
 	else {
 		cout << "Case out of range" << endl;
+		return false;
 	}
+	return true;
 }
 
 bool Grille::isDead()
@@ -89,8 +96,18 @@ int Grille::shootCase(int x, int y)
 
 void Grille::afficheGrille(bool bateau)
 {
+	int i;
+	cout << "  ";
+	for (i=0; i <  Taille  ;i++)
+	{cout << i <<" "; }
+	cout<< endl;
+	i = 0;
 	for (vector<Case*> l : grille)
-	{ 
+	{
+
+			cout << i<< " ";
+		
+		
 		for(Case* c : l)
 		{
 			if (c->getHasBateau()) {
@@ -116,6 +133,7 @@ void Grille::afficheGrille(bool bateau)
 			}
 		}
 		cout << endl;
+		i++;
 	}
 }
 

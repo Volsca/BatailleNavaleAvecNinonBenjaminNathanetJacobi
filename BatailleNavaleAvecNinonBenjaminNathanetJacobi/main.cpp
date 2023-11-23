@@ -4,6 +4,7 @@
 #include"Bateau.h"
 
 int main() {
-	Grille gri();
-	gri.afficherGrille(true);
+	Grille gri;
+	gri.afficheGrille(true);
+	
 }

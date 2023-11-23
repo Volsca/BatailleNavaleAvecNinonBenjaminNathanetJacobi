@@ -1,5 +1,8 @@
 #include "Jeu.h"
 #include "Grille.h"
+#include <iostream>
+#include <Windows.h>
+using namespace std;
 
 Jeu::Jeu()
 {
