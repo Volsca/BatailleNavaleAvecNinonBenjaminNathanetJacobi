@@ -17,5 +17,6 @@ public :
 	bool isDead();
 	int shootCase(int x, int y);
 	void shot();
+	void afficheGrille(bool bateau);
 };
 

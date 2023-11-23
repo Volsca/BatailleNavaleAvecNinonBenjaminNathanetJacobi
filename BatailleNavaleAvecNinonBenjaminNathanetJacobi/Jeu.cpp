@@ -1,5 +1,8 @@
 #include "Jeu.h"
 #include "Grille.h"
+#include <iostream>
+#include <Windows.h>
+using namespace std
 
 Jeu::Jeu(Grille* one, Grille* two)
 {
@@ -9,4 +12,12 @@ Jeu::Jeu(Grille* one, Grille* two)
 
 void Jeu::Start()
 {
+}
+
+void Jeu::Affichage(bool p1)
+{
+	if (p1)
+	{
+
+	}
 }

@@ -1,6 +1,7 @@
 #include "Grille.h"
 #include "Case.h"
 #include <iostream>
+#include <Windows.h>
 using namespace std;
 Grille::Grille()
 {
@@ -73,4 +74,36 @@ bool Grille::isDead()
 int Grille::shootCase(int x, int y)
 {
 	return grille[x][y]->shoot();
+}
+
+void Grille::afficheGrille(bool bateau)
+{
+	for (vector<Case*> l : grille)
+	{ 
+		for(Case* c : l)
+		{
+			if (c->getHasBateau()) {
+				if (c->getHasBeenShot()) {
+					cout << "X ";
+				}
+				else {
+					if (bateau) {
+						cout << "B ";
+					}
+					else {
+						cout << "~ ";
+					}
+				}
+			}
+			else {
+				if (c->getHasBeenShot()) {
+					cout << "O ";
+				}
+				else {
+					cout << "~ ";
+				}
+			}
+		}
+		cout << endl;
+	}
 }

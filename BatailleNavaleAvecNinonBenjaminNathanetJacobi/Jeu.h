@@ -15,6 +15,6 @@ public :
 	void Start(); // Le départ du jeu
 	void Tour(); // La gestion d'un tour
 	void End(); // La fin du jeu
-	void Affichage(); // L'affichage
+	void Affichage(bool p1); // L'affichage
 };
 
