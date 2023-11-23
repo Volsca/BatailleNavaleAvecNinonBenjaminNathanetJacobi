@@ -6,7 +6,7 @@ Bateau::Bateau(int t)
     nbShot = 0;
 }
 
-void Bateau::isShot()
+void Bateau::shot()
 {
     nbShot += 1;
 }
@@ -14,4 +14,14 @@ void Bateau::isShot()
 int Bateau::getNbShot()
 {
     return nbShot;
+}
+
+int Bateau::getTaille()
+{
+    return taille;
+}
+
+bool Bateau::isDead()
+{
+    return taille==nbShot;
 }

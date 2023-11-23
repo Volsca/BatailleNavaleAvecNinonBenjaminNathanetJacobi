@@ -5,8 +5,10 @@ class Bateau
 	int nbShot;
 public:
 	Bateau(int t);
-	void isShot();
+	void shot();
 	int getNbShot();
+	int getTaille();
+	bool isDead();
 
 };
 
