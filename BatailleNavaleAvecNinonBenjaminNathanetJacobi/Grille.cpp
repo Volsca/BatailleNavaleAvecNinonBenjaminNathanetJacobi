@@ -4,6 +4,17 @@
 using namespace std;
 Grille::Grille()
 {
+	for (int jacobi = 0; jacobi < Taille; jacobi++)
+	{
+		Case* empty = new Case();
+		vector<Case*> temp;
+		for (int i = 0; i < Taille; i++)
+		{
+			temp.push_back(empty);
+		}
+		grille.push_back(temp);
+	}
+
 	shots = 0;
 }
 
@@ -73,4 +84,9 @@ bool Grille::isDead()
 int Grille::shootCase(int x, int y)
 {
 	return grille[x][y]->shoot();
+}
+
+void Grille::shot()
+{
+	shots += 1;
 }

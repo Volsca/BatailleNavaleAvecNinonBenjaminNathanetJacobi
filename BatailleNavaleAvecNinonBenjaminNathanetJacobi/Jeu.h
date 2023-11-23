@@ -9,6 +9,7 @@ class Jeu
 public :
  
 	// Contructeur
+	Jeu();
 	Jeu(Grille * one, Grille* two);
 
 	// Methodes 
