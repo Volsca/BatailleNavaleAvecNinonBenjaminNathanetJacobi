@@ -16,7 +16,6 @@ public :
 	void Start(); // Le départ du jeu
 	void Tour(); // La gestion d'un tour
 	void End(); // La fin du jeu
-	void Affichage(bool p1); // L'affichage
 	void addBateau(int taille, Grille* g);
 };
 

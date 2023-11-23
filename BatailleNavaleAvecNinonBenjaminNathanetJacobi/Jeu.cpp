@@ -51,14 +51,6 @@ void Jeu::Start()
 	Player2->afficheGrille(true);
 }
 
-void Jeu::Affichage(bool p1)
-{
-	if (p1)
-	{
-
-	}
-}
-
 void Jeu::addBateau(int taille, Grille* g)
 {
 	string dir;
