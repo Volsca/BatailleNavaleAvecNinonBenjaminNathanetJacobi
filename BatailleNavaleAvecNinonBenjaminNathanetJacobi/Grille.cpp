@@ -5,6 +5,17 @@
 using namespace std;
 Grille::Grille()
 {
+	for (int jacobi = 0; jacobi < Taille; jacobi++)
+	{
+		Case* empty = new Case();
+		vector<Case*> temp;
+		for (int i = 0; i < Taille; i++)
+		{
+			temp.push_back(empty);
+		}
+		grille.push_back(temp);
+	}
+
 	shots = 0;
 }
 
@@ -106,4 +117,9 @@ void Grille::afficheGrille(bool bateau)
 		}
 		cout << endl;
 	}
+}
+
+void Grille::shot()
+{
+	shots += 1;
 }
