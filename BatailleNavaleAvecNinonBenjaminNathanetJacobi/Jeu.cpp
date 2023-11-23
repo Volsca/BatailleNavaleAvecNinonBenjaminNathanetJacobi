@@ -27,6 +27,10 @@ void Jeu::Start()
 	Player1 = p1;
 	Player2 = p2;
 	
+	// Affichage initial
+	Player1->afficheGrille(true); 
+	cout << endl << endl;
+
 	// Placer les bateaux //
 	cout << "Joueur 2, détournez le regard..." << endl;
 	addBateau(5, Player1);
@@ -59,21 +63,21 @@ void Jeu::addBateau(int taille, Grille* g)
 {
 	string dir;
 	int x, y;
-	cout << "Joueur 1, placez vôtre bateau de " << taille << " cases, direction : (up, down, left, right) ";
-	cin >> dir;
-	cout << endl << "et son emplacement ? ";
+	cout << "Joueur, placez vôtre bateau de taille " << taille;
 	bool place = false;
 
 	while (!place)
 	{
-		cout << "Grille :" << endl << endl;
-		g->afficheGrille(true);
+		cout << endl << "Son emplacement ? ";
 		cout << "x : ";
-		cin >> x;
-		cout << " y :";
 		cin >> y;
+		cout << " y :";
+		cin >> x;
 		cout << endl;
+		cout << " direction : (up, down, left, right) ";
+		cin >> dir;
 		place = g->addBateau(taille, x, y, dir);
 		if (!place) { cout << " Placement échouée" << endl << endl; }
+		g->afficheGrille(true);
 	}
 }

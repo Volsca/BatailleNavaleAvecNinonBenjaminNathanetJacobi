@@ -31,8 +31,18 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			if ((x + 1 - taille) >= 0) {
 				for (int i = 0; i < taille; i++)
 				{
+					if (grille[x - i][y]->getHasBateau())
+					{
+						cout << "chevauchement de bateau" << endl;
+						return false;
+					}
+				}
+				for (int i = 0; i < taille; i++)
+				{
 					grille[x - i][y]->setHasBateau(true);
 				}
+
+		
 			}
 			else {
 				cout << "Bateau out of range" << endl;
@@ -42,10 +52,24 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 		//Direction vers le bas
 		else if (direction == "down") {
 			if ((x +taille-1) < Taille) {
+
+						
+				
+				for (int i = 0; i < taille; i++)
+				{
+					if (grille[x + i][y]->getHasBateau())
+					{
+						cout << "chevauchement de bateau" << endl;
+						return false;
+					}
+				}
 				for (int i = 0; i < taille; i++)
 				{
 					grille[x + i][y]->setHasBateau(true);
 				}
+
+
+
 			}
 			else {
 				cout << "Bateau out of range" << endl;
@@ -57,7 +81,15 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			if ((y + taille - 1) < Taille) {
 				for (int i = 0; i < taille; i++)
 				{
-					grille[x][y+i]->setHasBateau(true);
+					if (grille[x ][y+i]->getHasBateau())
+					{
+						cout << "chevauchement de bateau" << endl;
+						return false;
+					}
+				}
+				for (int i = 0; i < taille; i++)
+				{
+					grille[x ][y+i]->setHasBateau(true);
 				}
 			}
 			else {
@@ -70,7 +102,15 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			if ((y + 1 - taille) >= 0) {
 				for (int i = 0; i < taille; i++)
 				{
-					grille[x ][y-i]->setHasBateau(true);
+					if (grille[x ][y-i]->getHasBateau())
+					{
+						cout << "chevauchement de bateau" << endl;
+						return false;
+					}
+				}
+				for (int i = 0; i < taille; i++)
+				{
+					grille[x][y-i]->setHasBateau(true);
 				}
 			}
 			else {

@@ -4,7 +4,6 @@
 #include"Bateau.h"
 
 int main() {
-	Grille gri;
-	gri.afficheGrille(true);
-	
+	Jeu* game = new Jeu();
+	game->Start();
 }
