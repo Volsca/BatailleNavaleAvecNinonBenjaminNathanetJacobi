@@ -2,7 +2,9 @@
 #include "Case.h"
 #include <iostream>
 #include <Windows.h>
+
 using namespace std;
+
 Grille::Grille()
 {
 	for (int jacobi = 0; jacobi < Taille; jacobi++)
