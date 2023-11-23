@@ -2,15 +2,18 @@
 #include "Case.h"
 #include <iostream>
 #include <Windows.h>
+
 using namespace std;
+
 Grille::Grille()
 {
 	for (int jacobi = 0; jacobi < Taille; jacobi++)
 	{
-		Case* empty = new Case();
+		
 		vector<Case*> temp;
 		for (int i = 0; i < Taille; i++)
 		{
+			Case* empty = new Case();
 			temp.push_back(empty);
 		}
 		grille.push_back(temp);
