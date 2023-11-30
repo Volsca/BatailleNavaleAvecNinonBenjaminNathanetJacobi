@@ -14,6 +14,7 @@ public:
 	bool getHasBeenShot();
 	void setHasBeenShot(bool a);
 	void setHasBateau(bool a);
+	void setBateau(Bateau* b);
 	int shoot();
 
 };

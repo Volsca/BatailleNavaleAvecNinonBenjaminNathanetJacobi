@@ -2,7 +2,7 @@
 #include "Case.h"
 #include <iostream>
 #include <Windows.h>
-
+#include "Bateau.h"
 using namespace std;
 
 Grille::Grille()
@@ -26,98 +26,117 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 {
 	if (y >= 0 && y < Taille && x >= 0 && x < Taille)
 	{
-		//Direction vers le haut
-		if (direction == "up") {
-			if ((x + 1 - taille) >= 0) {
-				for (int i = 0; i < taille; i++)
-				{
-					if (grille[x - i][y]->getHasBateau())
+		if (direction == "up" || direction == "right" || direction == "left" || direction == "down")
+		{
+			//Direction vers le haut
+			if (direction == "up") {
+				if ((x + 1 - taille) >= 0) {
+					for (int i = 0; i < taille; i++)
 					{
-						cout << "chevauchement de bateau" << endl;
-						return false;
+						if (grille[x - i][y]->getHasBateau())
+						{
+							cout << "chevauchement de bateau" << endl;
+							return false;
+						}
+					}
+					Bateau* temp_b = new Bateau(taille);
+					for (int i = 0; i < taille; i++)
+					{
+
+						grille[x - i][y]->setHasBateau(true);
+						grille[x - i][y]->setBateau(temp_b);
+					}
+
+
+
+				}
+				else {
+					cout << "Bateau out of range" << endl;
+					return false;
+				}
+			}
+			//Direction vers le bas
+			else if (direction == "down") {
+				if ((x + taille - 1) < Taille) {
+
+
+
+					for (int i = 0; i < taille; i++)
+					{
+						if (grille[x + i][y]->getHasBateau())
+						{
+							cout << "chevauchement de bateau" << endl;
+							return false;
+						}
+					}
+					Bateau* temp_b = new Bateau(taille);
+					for (int i = 0; i < taille; i++)
+					{
+						grille[x + i][y]->setHasBateau(true);
+						grille[x + i][y]->setBateau(temp_b);
+					}
+
+
+
+				}
+				else {
+					cout << "Bateau out of range" << endl;
+					return false;
+				}
+			}
+			//Direction vers la droite
+			else if (direction == "right") {
+				if ((y + taille - 1) < Taille) {
+					for (int i = 0; i < taille; i++)
+					{
+						if (grille[x][y + i]->getHasBateau())
+						{
+							cout << "chevauchement de bateau" << endl;
+							return false;
+						}
+					}
+					Bateau* temp_b = new Bateau(taille);
+					for (int i = 0; i < taille; i++)
+					{
+						grille[x][y + i]->setHasBateau(true);
+						grille[x][y + i]->setBateau(temp_b);
 					}
 				}
-				for (int i = 0; i < taille; i++)
-				{
-					grille[x - i][y]->setHasBateau(true);
+				else {
+					cout << "Bateau out of range" << endl;
+					return false;
 				}
-
+			}
+			//Direction vers la gauche
+			if (direction == "left") {
+				if ((y + 1 - taille) >= 0) {
+					for (int i = 0; i < taille; i++)
+					{
+						if (grille[x][y - i]->getHasBateau())
+						{
+							cout << "chevauchement de bateau" << endl;
+							return false;
+						}
+					}
+					Bateau* temp_b = new Bateau(taille);
+					for (int i = 0; i < taille; i++)
+					{
+						grille[x][y - i]->setHasBateau(true);
+						grille[x][y - i]->setBateau(temp_b);
+					}
+				}
+				else {
+					cout << "Bateau out of range" << endl;
+					return false;
+				}
+			}
+		}
+		else {
 		
-			}
-			else {
-				cout << "Bateau out of range" << endl;
-				return false;
-			}
+		cout << "Wrong direction" << endl;
+		return false;
 		}
-		//Direction vers le bas
-		else if (direction == "down") {
-			if ((x +taille-1) < Taille) {
-
-						
-				
-				for (int i = 0; i < taille; i++)
-				{
-					if (grille[x + i][y]->getHasBateau())
-					{
-						cout << "chevauchement de bateau" << endl;
-						return false;
-					}
-				}
-				for (int i = 0; i < taille; i++)
-				{
-					grille[x + i][y]->setHasBateau(true);
-				}
-
-
-
-			}
-			else {
-				cout << "Bateau out of range" << endl;
-				return false;
-			}
-		}
-		//Direction vers la droite
-		else if (direction == "right") {
-			if ((y + taille - 1) < Taille) {
-				for (int i = 0; i < taille; i++)
-				{
-					if (grille[x ][y+i]->getHasBateau())
-					{
-						cout << "chevauchement de bateau" << endl;
-						return false;
-					}
-				}
-				for (int i = 0; i < taille; i++)
-				{
-					grille[x ][y+i]->setHasBateau(true);
-				}
-			}
-			else {
-				cout << "Bateau out of range" << endl;
-				return false;
-			}
-		}
-		//Direction vers la gauche
-		if (direction == "left") {
-			if ((y + 1 - taille) >= 0) {
-				for (int i = 0; i < taille; i++)
-				{
-					if (grille[x ][y-i]->getHasBateau())
-					{
-						cout << "chevauchement de bateau" << endl;
-						return false;
-					}
-				}
-				for (int i = 0; i < taille; i++)
-				{
-					grille[x][y-i]->setHasBateau(true);
-				}
-			}
-			else {
-				cout << "Bateau out of range" << endl;
-				return false;
-			}
-		}
+		
 	}
 	else {
 		cout << "Case out of range" << endl;
