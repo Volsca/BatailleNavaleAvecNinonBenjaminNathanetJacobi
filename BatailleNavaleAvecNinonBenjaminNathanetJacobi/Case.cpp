@@ -31,7 +31,7 @@ void Case::setHasBateau(bool a)
 	hasBateau = a;
 }
 
-int Case::shoot() //retourne 0 si la case avait déjà été visée, 1 s'il n'y a pas de bateau, 2 si un bateau est touché
+int Case::shoot() //retourne 0 si la case avait déjà été visée, 1 s'il n'y a pas de bateau, 2 si un bateau est touché, 3 si le bateau est coulé
 {
 	if (hasBeenShot)
 	{	
@@ -47,6 +47,7 @@ int Case::shoot() //retourne 0 si la case avait déjà été visée, 1 s'il n'y a pas
 			if (bateau->isDead())
 			{
 				cout << "Coulé !" << endl;
+				return 3;
 			}
 			return 2;
 		}
