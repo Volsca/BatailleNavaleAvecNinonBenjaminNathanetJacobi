@@ -15,6 +15,5 @@ public:
 	void setHasBeenShot(bool a);
 	void setHasBateau(bool a);
 	int shoot();
-
 };
 
