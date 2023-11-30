@@ -15,7 +15,7 @@ public :
 	Grille();
 	bool addBateau(int taille, int x,int y, string direction);
 	bool isDead();
-	int shootCase(int x, int y);
+	int shootCase(int x, int y); // 
 	void shot();
 	void afficheGrille(bool bateau);
 };

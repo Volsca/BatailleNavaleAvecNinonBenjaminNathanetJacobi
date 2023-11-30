@@ -63,7 +63,69 @@ void Jeu::Start()
 // Tour principal du jeu
 bool Jeu::Tour()
 {
+	int x, y; // Les coordonées de tir
+	int etat = 0;
 
+	// Joueur 1 d'abord
+	cout << "Joueur 1 vous êtes prèt ?" << endl;
+	
+	while (etat == 0) {
+		cout << "Player 1" << endl;
+		Player1->afficheGrille(true);
+		cout << "Player 2" << endl;
+		Player2->afficheGrille(true);
+		cout << "Veuillez tirer sur votre ennemi. x : ";
+		cin >> x;
+		cout << endl << "Et en y :";
+		cin >> y;
+		etat = Player2->shootCase(y, x);
+
+		if (etat == 0) { cout << "Case déjà touchée, réessayez" << endl; }
+	}
+	
+	if (etat == 1) {
+		cout << "Vous ne savez pas viser..." << endl;
+	}
+	else {
+		cout << "Fort..." << endl;
+		Player2->shot();
+
+		if (Player2->isDead()) {
+			cout << "Vous avez tout détruit... Victoire." << endl;
+			return false;
+		}
+	}
+
+
+	// Joueur 2
+	cout << "Joueur 2 vous êtes prèt ?" << endl;
+
+	while (etat == 0) {
+		cout << "Player 1" << endl;
+		Player1->afficheGrille(true);
+		cout << "Player 2" << endl;
+		Player2->afficheGrille(true);
+		cout << "Veuillez tirer sur votre ennemi. x : ";
+		cin >> x;
+		cout << endl << "Et en y :";
+		cin >> y;
+		etat = Player1->shootCase(y, x);
+
+		if (etat == 0) { cout << "Case déjà touchée, réessayez" << endl; }
+	}
+
+	if (etat == 1) {
+		cout << "Miss ! Vous ne savez pas viser..." << endl;
+	}
+	else {
+		cout << "Touché !!! Fort..." << endl;
+		Player1->shot();
+
+		if (Player1->isDead()) {
+			cout << "Vous avez tout détruit... Victoire." << endl;
+			return false;
+		}
+	}
 }
 
 // Placement des bateaux en début de jeu

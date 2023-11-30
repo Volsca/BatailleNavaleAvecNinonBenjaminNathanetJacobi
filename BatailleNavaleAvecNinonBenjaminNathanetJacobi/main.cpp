@@ -9,6 +9,9 @@ int main() {
 
 	// Boucle principale du jeu
 	while (game->getGame()) {
-
+		
+		game->Tour();
 	}
+
+	//game->End();
 }
