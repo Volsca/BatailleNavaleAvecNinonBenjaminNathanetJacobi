@@ -93,11 +93,12 @@ bool Jeu::Tour()
 
 		if (Player2->isDead()) {
 			cout << "Vous avez tout détruit... Victoire." << endl;
+			game = false;
 			return false;
 		}
 	}
 
-
+	etat = 0;
 	// Joueur 2
 	cout << "Joueur 2 vous êtes prèt ?" << endl;
 
@@ -123,11 +124,12 @@ bool Jeu::Tour()
 		Player1->shot();
 
 		if (Player1->isDead()) {
-			cout << "Vous avez tout détruit... Victoire." << endl;
+			cout << "Vous avez tout détruit... Victoire." << endl; 
+			game = false;
 			return false;
 		}
 	}
-	;
+	return true;
 }
 
 void Jeu::End()
@@ -162,7 +164,8 @@ void Jeu::addBateau(int taille, Grille* g)
 		cout << endl;
 		cout << " direction : (up, down, left, right) ";
 		cin >> dir;
-		place = g->addBateau(taille, x, y, dir); // Add bateau dans Grille.h/.cpp
+		place = g->addBateau(taille, x, y, dir);
+ // Add bateau dans Grille.h/.cpp
 		if (!place) { cout << " Placement échouée" << endl << endl; }
 		g->afficheGrille(true); // Visualiser le changement
 	}
