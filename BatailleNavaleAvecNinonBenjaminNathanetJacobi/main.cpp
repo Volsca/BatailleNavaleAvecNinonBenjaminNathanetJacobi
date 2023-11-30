@@ -12,6 +12,5 @@ int main() {
 		
 		game->Tour();
 	}
-
-	//game->End();
+	game->End();
 }

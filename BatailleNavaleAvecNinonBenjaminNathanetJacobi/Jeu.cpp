@@ -57,6 +57,7 @@ void Jeu::Start()
 
 	// Le jeu est en cours
 	game = true;
+
 }
 
 
@@ -126,6 +127,20 @@ bool Jeu::Tour()
 			return false;
 		}
 	}
+	;
+}
+
+void Jeu::End()
+{
+	if (Player1->isDead())
+	{
+		cout << "Joueur 2 a gagné!" << endl;
+	}
+	else
+	{
+		cout << "Joueur 1 a gagné!" << endl;
+	}
+		
 }
 
 // Placement des bateaux en début de jeu
