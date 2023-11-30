@@ -6,7 +6,7 @@ class Jeu
 	Grille* Player1;
 	Grille* Player2;
 
-	bool game = false;
+	bool game = true;
 
 public :
  
