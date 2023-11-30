@@ -91,8 +91,7 @@ bool Jeu::Tour()
 		 << endl;
 
 	std::cout << "Joueur 1 vous êtes prèt ?" << endl;
-	std::getline(std::cin, ready);
-
+	std::cin >> ready;
 	if (std::cin.fail()) { std::cin.clear(); ready = "non";  }
 	
 		
