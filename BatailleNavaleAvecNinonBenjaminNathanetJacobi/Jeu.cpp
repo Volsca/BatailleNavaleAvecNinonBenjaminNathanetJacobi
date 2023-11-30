@@ -18,6 +18,11 @@ Jeu::Jeu(Grille* one, Grille* two)
 	Player2 = two;
 }
 
+bool Jeu::getGame()
+{
+	return game;
+}
+
 void Jeu::Start()
 {
 	// Initialisation première du jeu
@@ -49,6 +54,9 @@ void Jeu::Start()
 	// Affichage test
 	Player1->afficheGrille(true); 
 	Player2->afficheGrille(true);
+
+	// Le jeu est en cours
+	game = true;
 }
 
 void Jeu::addBateau(int taille, Grille* g)

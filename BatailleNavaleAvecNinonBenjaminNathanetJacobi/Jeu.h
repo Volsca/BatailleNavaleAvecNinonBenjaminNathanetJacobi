@@ -6,11 +6,16 @@ class Jeu
 	Grille* Player1;
 	Grille* Player2;
 
+	bool game;
+
 public :
  
 	// Contructeur
 	Jeu();
 	Jeu(Grille * one, Grille* two);
+
+	// Getters
+	bool getGame();
 
 	// Methodes 
 	void Start(); // Le départ du jeu

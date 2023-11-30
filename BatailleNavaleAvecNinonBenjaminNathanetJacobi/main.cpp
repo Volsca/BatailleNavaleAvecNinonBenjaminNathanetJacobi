@@ -6,4 +6,9 @@
 int main() {
 	Jeu* game = new Jeu();
 	game->Start();
+
+	// Boucle principale du jeu
+	while (game->getGame()) {
+
+	}
 }
