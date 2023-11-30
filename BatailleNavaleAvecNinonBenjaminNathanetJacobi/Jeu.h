@@ -6,7 +6,7 @@ class Jeu
 	Grille* Player1;
 	Grille* Player2;
 
-	bool game;
+	bool game = false;
 
 public :
  
@@ -19,7 +19,7 @@ public :
 
 	// Methodes 
 	void Start(); // Le départ du jeu
-	void Tour(); // La gestion d'un tour
+	bool Tour(); // La gestion d'un tour (return true si le jeu est toujours en cours)
 	void End(); // La fin du jeu
 	void addBateau(int taille, Grille* g);
 };

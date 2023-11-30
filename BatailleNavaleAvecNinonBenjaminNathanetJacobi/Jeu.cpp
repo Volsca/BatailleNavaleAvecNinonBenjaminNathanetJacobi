@@ -59,6 +59,14 @@ void Jeu::Start()
 	game = true;
 }
 
+
+// Tour principal du jeu
+bool Jeu::Tour()
+{
+
+}
+
+// Placement des bateaux en début de jeu
 void Jeu::addBateau(int taille, Grille* g)
 {
 	string dir;
@@ -66,6 +74,7 @@ void Jeu::addBateau(int taille, Grille* g)
 	cout << "Joueur, placez vôtre bateau de taille " << taille;
 	bool place = false;
 
+	// Placement du bateau avec vérification de dépassement et de collisions
 	while (!place)
 	{
 		cout << endl << "Son emplacement ? ";
@@ -76,8 +85,8 @@ void Jeu::addBateau(int taille, Grille* g)
 		cout << endl;
 		cout << " direction : (up, down, left, right) ";
 		cin >> dir;
-		place = g->addBateau(taille, x, y, dir);
+		place = g->addBateau(taille, x, y, dir); // Add bateau dans Grille.h/.cpp
 		if (!place) { cout << " Placement échouée" << endl << endl; }
-		g->afficheGrille(true);
+		g->afficheGrille(true); // Visualiser le changement
 	}
 }
