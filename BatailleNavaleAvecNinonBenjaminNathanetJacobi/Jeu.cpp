@@ -56,8 +56,8 @@ void Jeu::Start()
 	{
 		std::cout << "Joueur 2, détournez le regard..." << endl;
 	}
-	//addBateau(5, Player1);
-	//addBateau(4, Player1);
+	addBateau(5, Player1);
+	addBateau(4, Player1);
 	addBateau(3, Player1);
 	addBateau(3, Player1);
 	addBateau(2, Player1);
