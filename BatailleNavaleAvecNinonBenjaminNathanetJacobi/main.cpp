@@ -1,6 +1,7 @@
 #include "Grille.h"
 #include "Case.h"
 #include "Jeu.h"
+#include "IA.h"
 #include"Bateau.h"
 
 /*! \file main.cpp
@@ -9,7 +10,8 @@
 *	\version 0.5.2.6.7
 */
 int main() {
-	Jeu* game = new Jeu();
+	IA* adv = new IA();
+	Jeu* game = new Jeu(adv);
 	game->Start();
 
 	// Boucle principale du jeu
