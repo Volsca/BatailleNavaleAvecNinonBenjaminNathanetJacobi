@@ -76,8 +76,8 @@ void IA::jouer()
        case 0:
            if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1])
            {
-               imove=(imove+1)%4;
-               jouer();
+              imove=(imove+1)%4;
+              jouer();
            }
            else
            {
@@ -88,7 +88,7 @@ void IA::jouer()
            }
            break;
        case 1:
-           if (postouche == posdernier)
+           if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1])
            {
                imove = (imove + 1) % 4;
            }

@@ -13,7 +13,7 @@ public :
  
 	// Contructeur
 	Jeu();
-	Jeu(IA* a);
+	Jeu(IA* a); //Le constructeur utilisé au final
 	Jeu(Grille * one, Grille* two);
 
 	// Getters
