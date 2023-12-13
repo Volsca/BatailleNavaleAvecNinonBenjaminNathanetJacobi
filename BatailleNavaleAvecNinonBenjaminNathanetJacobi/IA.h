@@ -6,7 +6,7 @@ using namespace std;
 
 class IA
 {private:
-	int imove;
+	int imove;//Permet de décider la direction dans laquelle tirer lorsque l'on a trouvé un bateau
 	int posdernier[2];//dernière case où le bateau a été touché
 	int postouche[2]; //première case où le bateau a été touché
 	bool cherche; //n'a pas encore touché de nouveau bateau
