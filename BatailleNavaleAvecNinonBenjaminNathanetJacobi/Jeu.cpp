@@ -52,9 +52,12 @@ void Jeu::Start()
 	std::cout << endl << endl;
 
 	// Placer les bateaux //
-	std::cout << "Joueur 2, détournez le regard..." << endl;
-	addBateau(5, Player1);
-	addBateau(4, Player1);
+	if (!solo)
+	{
+		std::cout << "Joueur 2, détournez le regard..." << endl;
+	}
+	//addBateau(5, Player1);
+	//addBateau(4, Player1);
 	addBateau(3, Player1);
 	addBateau(3, Player1);
 	addBateau(2, Player1);
@@ -274,7 +277,7 @@ void Jeu::addBateau_IA(int taille, Grille* g)
 {
 	vector<string> directions = { "up","down","left","right"};
 	bool place = false;
-
+	srand(time(nullptr));
 	// Placement du bateau avec vérification de dépassement et de collisions
 	while (!place)
 	{

@@ -147,6 +147,7 @@ bool Grille::isDead()
 
 int Grille::shootCase(int x, int y)
 {
+
 	return grille[x][y]->shoot();
 }
 

@@ -4,12 +4,13 @@
 #include <time.h>
 
 
-void IA::jouer()
+void IA::jouer() //tour de jeu
 {
-    vector<int> resultat;
+    //Coordonnées du tir
     int new_x;
     int new_y;
-    int restir;
+
+    int restir;//résultat du tir : 0 si la case avait déjà été visée, 1 s'il n'y a pas de bateau, 2 si un bateau est touché, 3 si le bateau est coulé
 
     if (cherche) 
     {
@@ -19,7 +20,7 @@ void IA::jouer()
         restir=  maGrille->shootCase(new_y, new_x);
         switch (restir)
         {
-        case 0:
+        case 0: //si la case avait déjà été visée, on rejoue
             jouer();
             break;
         case 2:
@@ -34,19 +35,33 @@ void IA::jouer()
     }
     else
     {
-        switch (imove)
+        switch (imove) //on choisit la prochaine direction, 0 vers le haut, 1 vers la droite, 2 vers le bas et 3 vers la gauche
         {
 
         case 0:
+            if (nbtry >= 4)
+            {
+                new_y = posdernier[1] - 2;
+            }
+            else
+            {
+                new_y = posdernier[1] - 1;
+            }
             new_x = posdernier[0];
-            new_y = posdernier[1] - 1;
             if (new_y < 0) {
                 imove = (imove + 2) % 4;
                 new_y = postouche[1] + 1;
             }
             break;
         case 1:
-            new_x = posdernier[0]+1;
+            if (nbtry >= 4)
+            {
+                new_x = posdernier[0] + 2;
+            }
+            else
+            {
+                new_x = posdernier[0] + 1;
+            }
             new_y = posdernier[1];
             if (new_x > 9) {
                 imove = (imove + 2) % 4;
@@ -54,15 +69,30 @@ void IA::jouer()
             }
             break;
         case 2:
+            if (nbtry >= 4)
+            {
+                new_y = posdernier[1] + 2;
+            }
+            else
+            {
+                new_y = posdernier[1] + 1;
+            }
             new_x = posdernier[0];
-            new_y = posdernier[1]+1;
             if (new_y > 9) {
                 imove = (imove + 2) % 4;
                 new_y = postouche[1] - 1;
             }
             break;
         case 3:
-            new_x = posdernier[0]-1;
+            if (nbtry >= 4) 
+            {
+                new_x = posdernier[0] - 2;
+            }
+            else
+            {
+                new_x = posdernier[0] - 1;
+            }
+            
             new_y = posdernier[1];
             if (new_x <0) {
                 imove = (imove + 2) % 4;
@@ -70,48 +100,51 @@ void IA::jouer()
             }
             break;
         }
+       
        restir= maGrille->shootCase(new_y, new_x);
        switch (restir)
        {
        case 0:
-           if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1])
+           if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1]) //si on n'a touché qu'une seule fois, on teste toutes les directions
            {
               imove=(imove+1)%4;
+              nbtry++;
               jouer();
            }
-           else
+           else //sinon on repart dans la direction opposée
            {
                imove = (imove + 2) % 4;
                posdernier[0] = postouche[0];
                posdernier[1] = postouche[1];
+               nbtry++;
                jouer();
            }
            break;
        case 1:
-           if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1])
+           if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1]) //si on n'a touché qu'une seule fois, on teste toutes les directions
            {
                imove = (imove + 1) % 4;
+               nbtry = 0;
            }
-           else
+           else //sinon on repart dans la direction opposée
            {
                posdernier[0] = postouche[0];
                posdernier[1] = postouche[1];
                imove=(imove + 2)%4;
+               nbtry = 0;
            }
            break;
-       case 2:
+       case 2: //si on a touché on continue dans cette direction
            posdernier[0] = new_x;
            posdernier[1] = new_y;
+           nbtry = 0;
            break;
-       case 3:
+       case 3: // on coule un bateau, on repasse en aléatoire
            cherche = true;
+           nbtry = 0;
            break;
        }
     }
-
-    
-
-    return ;
 }
 
 IA::IA()

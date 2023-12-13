@@ -11,11 +11,14 @@ class IA
 	int postouche[2]; //première case où le bateau a été touché
 	bool cherche; //n'a pas encore touché de nouveau bateau
 	Grille* maGrille;
+	int nbtry;//nombre d'essai sans pouvoir tirer
 public:
-	
-	void jouer();
+	//Constructeurs
 	IA();
-	void setGrille(Grille* g) { maGrille = g; };
 	IA(Grille* g);
+
+	void jouer(); //Tour de jeu d'IA
+	void setGrille(Grille* g) { maGrille = g; };
+	
 };
 
