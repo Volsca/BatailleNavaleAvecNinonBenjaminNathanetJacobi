@@ -84,7 +84,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a442706ca3dc66a38b219ff9b7acb2228" id="r_a442706ca3dc66a38b219ff9b7acb2228"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grille.html#a442706ca3dc66a38b219ff9b7acb2228">Grille</a> ()</td></tr>
-<tr class="memdesc:a442706ca3dc66a38b219ff9b7acb2228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur Crée la grille vide contenant aucun bateau.  <br /></td></tr>
+<tr class="memdesc:a442706ca3dc66a38b219ff9b7acb2228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur Cree la grille vide contenant aucun bateau.  <br /></td></tr>
 <tr class="separator:a442706ca3dc66a38b219ff9b7acb2228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ef97dffaf9da434f73e7fe58bba4583" id="r_a0ef97dffaf9da434f73e7fe58bba4583"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grille.html#a0ef97dffaf9da434f73e7fe58bba4583">addBateau</a> (int taille, int x, int y, string direction)</td></tr>
 <tr class="memdesc:a0ef97dffaf9da434f73e7fe58bba4583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'ajout d'un bateau.  <br /></td></tr>
@@ -93,10 +93,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3db24ad6a8e13a21b9d6025ee6618182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifie l'etat du joueur.  <br /></td></tr>
 <tr class="separator:a3db24ad6a8e13a21b9d6025ee6618182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75524bf167416092382312012798b0b2" id="r_a75524bf167416092382312012798b0b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grille.html#a75524bf167416092382312012798b0b2">shootCase</a> (int x, int y)</td></tr>
+<tr class="memdesc:a75524bf167416092382312012798b0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre un tir pour ce joueur a une case specifiee.  <br /></td></tr>
 <tr class="separator:a75524bf167416092382312012798b0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4129b3d2e9d51d089a43d576f9defb8a" id="r_a4129b3d2e9d51d089a43d576f9defb8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grille.html#a4129b3d2e9d51d089a43d576f9defb8a">shot</a> ()</td></tr>
+<tr class="memdesc:a4129b3d2e9d51d089a43d576f9defb8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augmente shots de 1.  <br /></td></tr>
 <tr class="separator:a4129b3d2e9d51d089a43d576f9defb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7faeff9ab8106ed8bf06853390a82b54" id="r_a7faeff9ab8106ed8bf06853390a82b54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grille.html#a7faeff9ab8106ed8bf06853390a82b54">afficheGrille</a> (bool bateau)</td></tr>
+<tr class="memdesc:a7faeff9ab8106ed8bf06853390a82b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage classique pour une grille Si bateau = true on affiche la grille avec ses bateaux, et tout les emplacments precedemment choisi pour un tir, sinon affiche que les tirs.  <br /></td></tr>
 <tr class="separator:a7faeff9ab8106ed8bf06853390a82b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -129,7 +132,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructeur Crée la grille vide contenant aucun bateau. </p>
+<p>Constructeur Cree la grille vide contenant aucun bateau. </p>
 
 </div>
 </div>
@@ -193,6 +196,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Fonction d'affichage classique pour une grille Si bateau = true on affiche la grille avec ses bateaux, et tout les emplacments precedemment choisi pour un tir, sinon affiche que les tirs. </p>
+
 </div>
 </div>
 <a id="a3db24ad6a8e13a21b9d6025ee6618182" name="a3db24ad6a8e13a21b9d6025ee6618182"></a>
@@ -240,6 +245,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enregistre un tir pour ce joueur a une case specifiee. </p>
+
 </div>
 </div>
 <a id="a4129b3d2e9d51d089a43d576f9defb8a" name="a4129b3d2e9d51d089a43d576f9defb8a"></a>
@@ -256,6 +263,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Augmente shots de 1. </p>
 
 </div>
 </div>

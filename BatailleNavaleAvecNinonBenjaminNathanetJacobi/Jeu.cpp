@@ -14,14 +14,12 @@ Jeu::Jeu()
 	Player2 = nullptr;
 
 }
-
 Jeu::Jeu(IA* a)
 {
 	Player1 = nullptr;
 	Player2 = nullptr;
 	adversaire = a;
 }
-
 Jeu::Jeu(Grille* one, Grille* two)
 {
 	Player1 = one;
@@ -56,11 +54,12 @@ void Jeu::Start()
 	// Placer les bateaux //
 	std::cout << "Joueur 2, détournez le regard..." << endl;
 	addBateau(5, Player1);
-	//addBateau(4, Player1);
-	//addBateau(3, Player1);
-	//addBateau(3, Player1);
-	//addBateau(2, Player1);
+	addBateau(4, Player1);
+	addBateau(3, Player1);
+	addBateau(3, Player1);
+	addBateau(2, Player1);
 
+	// Clear hadoc du terminal
 	std::cout << endl << endl << endl << endl << endl 
 		 << endl << endl << endl << endl << endl 
 		 << endl << endl << endl << endl << endl 
@@ -110,6 +109,7 @@ bool Jeu::Tour()
 	string ready = "";
 
 	// Joueur 1 d'abord
+	// Clear hadoc du terminal
 	std::cout << endl << endl << endl << endl << endl
 		 << endl << endl << endl << endl << endl 
 		 << endl << endl << endl << endl << endl 
@@ -175,6 +175,7 @@ bool Jeu::Tour()
 	else 
 	{
 		ready = "";
+		// Clear hadoc du terminal
 		std::cout << endl << endl << endl << endl << endl
 			<< endl << endl << endl << endl << endl
 			<< endl << endl << endl << endl << endl
