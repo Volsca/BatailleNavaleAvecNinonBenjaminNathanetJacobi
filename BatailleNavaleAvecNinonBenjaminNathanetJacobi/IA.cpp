@@ -15,7 +15,7 @@ void IA::jouer()
     {
         srand(time(nullptr));
         new_x = rand() % 10;
-        new_x = rand() % 10;
+        new_y = rand() % 10;
         restir=  maGrille->shootCase(new_y, new_x);
         switch (restir)
         {
@@ -74,7 +74,7 @@ void IA::jouer()
        switch (restir)
        {
        case 0:
-           if (postouche == posdernier)
+           if (postouche[0] == posdernier[0] && postouche[1] == posdernier[1])
            {
                imove=(imove+1)%4;
                jouer();
@@ -112,6 +112,17 @@ void IA::jouer()
     
 
     return ;
+}
+
+IA::IA()
+{
+    cherche = true;
+    imove = 0;
+    maGrille = nullptr;
+    posdernier[0] =  0;
+    postouche[0] = 0;
+    posdernier[1] = 0;
+    postouche[1] = 0;
 }
 
 IA::IA(Grille* g)
