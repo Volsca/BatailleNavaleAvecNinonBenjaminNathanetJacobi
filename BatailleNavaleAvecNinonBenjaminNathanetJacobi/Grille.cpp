@@ -5,6 +5,10 @@
 #include "Bateau.h"
 using namespace std;
 
+/**
+* @brief Constructeur
+* Cree la grille vide contenant aucun bateau.
+*/
 Grille::Grille()
 {
 	for (int jacobi = 0; jacobi < Taille; jacobi++)
@@ -21,6 +25,7 @@ Grille::Grille()
 
 	shots = 0;
 }
+
 
 bool Grille::addBateau(int taille, int x, int y, string direction)
 {
@@ -46,9 +51,6 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 						grille[x - i][y]->setHasBateau(true);
 						grille[x - i][y]->setBateau(temp_b);
 					}
-
-
-
 				}
 				else {
 					cout << "Bateau out of range" << endl;
@@ -58,9 +60,6 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 			//Direction vers le bas
 			else if (direction == "down") {
 				if ((x + taille - 1) < Taille) {
-
-
-
 					for (int i = 0; i < taille; i++)
 					{
 						if (grille[x + i][y]->getHasBateau())
@@ -75,9 +74,6 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 						grille[x + i][y]->setHasBateau(true);
 						grille[x + i][y]->setBateau(temp_b);
 					}
-
-
-
 				}
 				else {
 					cout << "Bateau out of range" << endl;
@@ -135,8 +131,7 @@ bool Grille::addBateau(int taille, int x, int y, string direction)
 		
 		cout << "Wrong direction" << endl;
 		return false;
-		}
-		
+		}	
 	}
 	else {
 		cout << "Case out of range" << endl;
