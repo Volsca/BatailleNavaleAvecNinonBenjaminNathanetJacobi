@@ -45,9 +45,17 @@ public :
 	int shootCase(int x, int y); // 
 	
 	/**
-	* @brief 
+	* @brief Augmente shots de 1
 	*/
 	void shot();
+
+	/**
+	* @brief Fonction d'affichage classique pour une grille
+	* Si bateau = true on affiche la grille avec ses bateaux, et tout les emplacments precedemment choisi pour un tir,
+	* sinon affiche que les tirs
+	*/
 	void afficheGrille(bool bateau);
 };
+
+
 
